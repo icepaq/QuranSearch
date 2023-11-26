@@ -19,10 +19,9 @@ export default function Home() {
   const [verses, setVerses] = useState<QuranQuery | null>(null);
   const [value, setValue] = useState(0);
 
-  const handleSearch = async () => {
-    const input = document.getElementById("verseinput") as HTMLInputElement;
-    const query = input.value;
+  const [query, setQuery] = useState("");
 
+  const handleSearch = async () => {
     setDisabled(true);
     const res = await axios.post(
       "https://quransearch-pxvdltgq6a-uc.a.run.app/findVerse",
@@ -60,6 +59,8 @@ export default function Home() {
             type="text"
             placeholder="Seek refuge from"
             className="p-4 border-2 rounded-md w-8/12"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
 
           {/* put a button inside of the intput */}
