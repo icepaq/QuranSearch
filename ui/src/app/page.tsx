@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-24">
+    <div className="flex min-h-screen flex-col items-center md:p-24 p-8">
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -67,14 +67,14 @@ export default function Home() {
       </Box>
       <div className={`${value === 0 ? "flex" : "hidden"}`}>
         <main className="flex flex-col items-center justify-center mt-20">
-          <h1 className="text-4xl font-bold text-stone-700 m-4">
+          <h1 className="text-4xl font-bold text-stone-700 my-4 text-center">
             Enter Your Verse Or Question
           </h1>
           <input
             id="verseinput"
             type="text"
             placeholder="Seek refuge from"
-            className="p-4 border-2 rounded-md w-8/12"
+            className="p-4 border-2 rounded-md md:w-8/12"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -92,7 +92,7 @@ export default function Home() {
             Search
           </button>
 
-          <p className="w-8/12 text-center m-4 text-stone-700">
+          <p className="md:w-8/12 text-center m-4 text-stone-700">
             If you are trying to remember a verse but are not able to remember
             the exact chapter or verse number, type your best recollections
             here. Currently only words for English works. Transliterated words
