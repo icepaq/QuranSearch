@@ -95,7 +95,7 @@ export default function Home() {
           <p className="md:w-8/12 text-center m-4 text-stone-700">
             If you are trying to remember a verse but are not able to remember
             the exact chapter or verse number, type your best recollections
-            here. Currently only words for English works. Transliterated words
+            here. Only works for English words. Transliterated words
             such as &quot;ribba&quot; or &quot;shirk&quot; will not work.
           </p>
           <div className="flex flex-col content-start">
