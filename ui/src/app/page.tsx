@@ -6,17 +6,15 @@ import axios from "axios";
 import { useState } from "react";
 
 type QuranQuery = {
-  ids: string[][];
-  metadatas: {
-    id: number;
-    text: string;
-    translation: string;
-  }[][];
+  chapter: number;
+  verse: number;
+  text: string;
+  translation: string;
 };
 
 export default function Home() {
   const [disabled, setDisabled] = useState(false);
-  const [verses, setVerses] = useState<QuranQuery | null>(null);
+  const [verses, setVerses] = useState<QuranQuery[]>([]);
   const [value, setValue] = useState(0);
 
   const [query, setQuery] = useState("");
@@ -30,7 +28,25 @@ export default function Home() {
       }
     );
     setDisabled(false);
-    setVerses(res.data);
+
+    console.log(res.data);
+
+    const data = res.data;
+
+    const organizedData: QuranQuery[] = data.metadatas[0].map(
+      (verse: any, index: number) => {
+        return {
+          chapter: parseInt(data.ids[0][index].split("-")[0]),
+          verse: parseInt(data.ids[0][index].split("-")[1]),
+          text: verse.text,
+          translation: verse.translation,
+        } as QuranQuery;
+      }
+    );
+
+    console.log({ organizedData });
+
+    setVerses(organizedData);
   };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -83,15 +99,13 @@ export default function Home() {
             such as &quot;ribba&quot; or &quot;shirk&quot; will not work.
           </p>
           <div className="flex flex-col content-start">
-            {verses?.metadatas[0].map((verse, index) => (
+            {verses.map((verse) => (
               <a
-                href={`https://quran.com/${
-                  verses.ids[0][index].split("-")[0]
-                }/${verses.ids[0][index].split("-")[1]}`}
-                key={verse.id}
+                href={`https://quran.com/${verse.chapter}/${verse.verse}`}
+                key={`${verse.chapter}/${verse.verse}`}
               >
                 <div className="mb-8 rounded-xl bg-sky-100 p-8">
-                  <div>{verses.ids[0][index]}</div>
+                  <div>{verse.chapter + "-" + verse.verse}</div>
                   <div>{verse.text}</div>
                   <div>{verse.translation}</div>
                 </div>
