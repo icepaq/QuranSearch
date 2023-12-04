@@ -22,4 +22,5 @@ Similarity search for the Quran. Using OpenAI embeddings and chromadb as the vec
 2. Run `docker run -t quransearch -p 5000:5000`
 
 ## Credits and Sources
-Quran JSON retrieved from [https://github.com/risan/quran-json](https://github.com/risan/quran-json)
+Quran JSON from [https://github.com/risan/quran-json](https://github.com/risan/quran-json)
+Hadith JSON from [https://github.com/A7med3bdulBaset/hadith-json](https://github.com/A7med3bdulBaset/hadith-json)

@@ -12,6 +12,7 @@ CORS(app)
 
 chroma_client = chromadb.PersistentClient('./chroma.db')
 collection = chroma_client.get_collection(name="my_collection")
+hadith_collection = chroma_client.get_collection(name="sahih_bukhari")
 
 
 @cross_origin()
@@ -26,6 +27,23 @@ def api():
 
     embedding = response.json()['data'][0]['embedding']
     results = collection.query(query_embeddings=[embedding], n_results=10)
+
+    return jsonify(results)
+
+
+@cross_origin()
+@app.route('/findHadith', methods=['POST'])
+def api2():
+    query = request.json['query']
+    response = requests.post('https://api.openai.com/v1/embeddings',
+                             json={'input': query, 'model': 'text-embedding-ada-002'}, headers={
+                                 'Content-Type': 'application/json',
+                                 'Authorization': 'Bearer ' + os.getenv('OPENAI_KEY')
+                             })
+
+    embedding = response.json()['data'][0]['embedding']
+    results = hadith_collection.query(
+        query_embeddings=[embedding], n_results=10)
 
     return jsonify(results)
 
