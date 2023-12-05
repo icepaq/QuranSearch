@@ -48,6 +48,12 @@ const HadithSearch = ({ display }: { display: number }) => {
         <h1 className="text-4xl font-bold text-stone-700 my-4 text-center">
           Enter Hadith or Question
         </h1>
+
+        <p className="md:w-8/12 text-center m-4 text-stone-700 bg-red-200 p-4 rounded-md">
+          Certain chapters and line numbers may not be entirely accurate. I am
+          currently building a new data set.
+        </p>
+
         <input
           id="verseinput"
           type="text"
