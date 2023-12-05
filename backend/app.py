@@ -18,6 +18,8 @@ hadith_collection = chroma_client.get_collection(name="sahih_bukhari")
 @cross_origin()
 @app.route('/findVerse', methods=['POST'])
 def api():
+    print('Verse search request from - ' + request.remote_addr)
+
     query = request.json['query']
     response = requests.post('https://api.openai.com/v1/embeddings',
                              json={'input': query, 'model': 'text-embedding-ada-002'}, headers={
@@ -34,6 +36,8 @@ def api():
 @cross_origin()
 @app.route('/findHadith', methods=['POST'])
 def api2():
+    print('Hadith search request from - ' + request.remote_addr)
+
     query = request.json['query']
     response = requests.post('https://api.openai.com/v1/embeddings',
                              json={'input': query, 'model': 'text-embedding-ada-002'}, headers={

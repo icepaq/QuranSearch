@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { Bars } from "react-loader-spinner";
 
 type Hadith = {
   id: string;
@@ -73,7 +74,11 @@ const HadithSearch = ({ display }: { display: number }) => {
           disabled={disabled}
           onClick={handleSearch}
         >
-          Search
+          {disabled ? (
+            <Bars color="white" width={"50"} height={"25"} />
+          ) : (
+            "Search"
+          )}
         </button>
 
         <p className="md:w-8/12 text-center m-4 text-stone-700">
