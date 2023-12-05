@@ -25,7 +25,8 @@ export default function Home() {
           <Tab label="Hadith (Sahih Al-Bukhari)" />
         </Tabs>
       </Box>
-      {value === 0 ? <QuranSearch /> : <HadithSearch />}
+      <QuranSearch display={value} />
+      <HadithSearch display={value} />
     </div>
   );
 }

@@ -14,7 +14,7 @@ type Hadith = {
   line: string;
 };
 
-const HadithSearch = () => {
+const HadithSearch = ({ display }: { display: number }) => {
   const [disabled, setDisabled] = useState(false);
   const [verses, setVerses] = useState<Hadith[]>([]);
   const [query, setQuery] = useState("");
@@ -43,7 +43,7 @@ const HadithSearch = () => {
     setVerses(organizedData);
   };
   return (
-    <div>
+    <div className={`${display === 0 ? "hidden" : ""}`}>
       <main className="flex flex-col items-center justify-center mt-20">
         <h1 className="text-4xl font-bold text-stone-700 my-4 text-center">
           Enter Hadith or Question

@@ -10,7 +10,7 @@ type QuranQuery = {
   translation: string;
 };
 
-const QuranSearch = () => {
+const QuranSearch = ({ display }: { display: number }) => {
   const [disabled, setDisabled] = useState(false);
   const [verses, setVerses] = useState<QuranQuery[]>([]);
   const [query, setQuery] = useState("");
@@ -45,7 +45,7 @@ const QuranSearch = () => {
     setVerses(organizedData);
   };
   return (
-    <div>
+    <div className={`${display === 0 ? "" : "hidden"}`}>
       <main className="flex flex-col items-center justify-center mt-20">
         <h1 className="text-4xl font-bold text-stone-700 my-4 text-center">
           Enter Your Verse Or Question
