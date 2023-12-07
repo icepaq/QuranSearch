@@ -26,8 +26,8 @@ export default function Home() {
           Github
         </a>
         . Always verify outputs via Quran.com, Sunnah.com or a trusted source.
-        Your device name is collected and stored for website analytics. It is
-        deleted within 24 hours of your visit.
+        Your browser type (eg Chrome, Safari...) is collected and stored for
+        website analytics. It is deleted within 24 hours of your visit.
       </div>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs

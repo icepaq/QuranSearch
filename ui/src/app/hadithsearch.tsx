@@ -51,8 +51,8 @@ const HadithSearch = ({ display }: { display: number }) => {
         </h1>
 
         <p className="md:w-8/12 text-center m-4 text-stone-700 bg-red-200 p-4 rounded-md">
-          Certain Hadiths may have the wrong chapter / line number. I am
-          currently building a new data set.
+          Certain Hadiths may have the wrong chapter / line number. I am working
+          on a new version.
         </p>
 
         <input
