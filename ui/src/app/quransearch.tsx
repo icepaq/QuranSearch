@@ -46,7 +46,7 @@ const QuranSearch = ({ display }: { display: number }) => {
     setVerses(organizedData);
   };
   return (
-    <div className={`${display === 0 ? "" : "hidden"}`}>
+    <div className={`${display === 1 ? "" : "hidden"}`}>
       <main className="flex flex-col items-center justify-center mt-20">
         <h1 className="text-4xl font-bold text-stone-700 my-4 text-center">
           Enter Your Verse Or Question

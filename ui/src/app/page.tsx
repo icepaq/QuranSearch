@@ -35,8 +35,8 @@ export default function Home() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Quran" />
           <Tab label="Hadith (Sahih Al-Bukhari)" />
+          <Tab label="Quran" />
         </Tabs>
       </Box>
       <QuranSearch display={value} />
